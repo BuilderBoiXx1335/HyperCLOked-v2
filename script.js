@@ -1,3 +1,15 @@
+let cloaked = false;
+const originalTitle = document.title;
+
+document.addEventListener("keydown", function(e) {
+  if (e.key.toLowerCase() === "k") {
+    cloaked = !cloaked;
+    document.getElementById("cloak-overlay").style.display = cloaked ? "block" : "none";
+    document.getElementById("cloak-banner").style.display = cloaked ? "none" : "block";
+    document.title = cloaked ? "New tab" : originalTitle;
+  }
+});
+
 function launchProxy() {
   let url = document.getElementById("urlInput").value.trim();
 

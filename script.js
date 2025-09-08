@@ -7,10 +7,12 @@ document.addEventListener("keydown", function(e) {
 
     const overlay = document.getElementById("cloak-overlay");
     const banner = document.getElementById("cloak-banner");
+    const proxyUI = document.getElementById("proxy-ui");
 
-    if (overlay && banner) {
+    if (overlay && banner && proxyUI) {
       overlay.style.display = cloaked ? "block" : "none";
       banner.style.display = cloaked ? "none" : "block";
+      proxyUI.style.display = cloaked ? "none" : "block";
       document.title = cloaked ? "New tab" : originalTitle;
     }
   }

@@ -5,11 +5,16 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f0f0f0;
   text-align: center;
+  height: 100vh;
+}
+
+#proxy-ui {
+  padding-top: 60px;
 }
 
 h1 {
   font-size: 2.5em;
-  margin: 60px 0 20px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -56,4 +61,3 @@ button {
   object-fit: cover;
   display: block;
 }
-

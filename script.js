@@ -14,3 +14,4 @@ function launchProxy() {
   newTab.document.write(iframeHTML);
   newTab.document.close();
 }
+

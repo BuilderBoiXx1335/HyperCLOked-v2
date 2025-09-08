@@ -5,6 +5,66 @@
   <title>Homework Helper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 60px 0 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      width: 300px;
+      max-width: 80%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    #cloak-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      padding: 5px;
+      font-size: 14px;
+      z-index: 9999;
+      text-align: center;
+    }
+
+    #cloak-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      z-index: 10000;
+    }
+
+    #cloak-overlay img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <!-- Cloak Banner -->
@@ -23,10 +83,14 @@
   <script src="script.js"></script>
   <script>
     let cloaked = false;
+    const originalTitle = document.title;
+
     document.addEventListener("keydown", function(e) {
       if (e.key.toLowerCase() === "k") {
         cloaked = !cloaked;
         document.getElementById("cloak-overlay").style.display = cloaked ? "block" : "none";
+        document.getElementById("cloak-banner").style.display = cloaked ? "none" : "block";
+        document.title = cloaked ? "New tab" : originalTitle;
       }
     });
   </script>

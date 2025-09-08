@@ -4,20 +4,32 @@ const originalTitle = document.title;
 document.addEventListener("keydown", function(e) {
   if (e.key.toLowerCase() === "k") {
     cloaked = !cloaked;
-    document.getElementById("cloak-overlay").style.display = cloaked ? "block" : "none";
-    document.getElementById("cloak-banner").style.display = cloaked ? "none" : "block";
-    document.title = cloaked ? "New tab" : originalTitle;
+
+    const overlay = document.getElementById("cloak-overlay");
+    const banner = document.getElementById("cloak-banner");
+
+    if (overlay && banner) {
+      overlay.style.display = cloaked ? "block" : "none";
+      banner.style.display = cloaked ? "none" : "block";
+      document.title = cloaked ? "New tab" : originalTitle;
+    }
   }
 });
 
 function launchProxy() {
-  let url = document.getElementById("urlInput").value.trim();
+  const input = document.getElementById("urlInput");
+  if (!input) return;
+
+  let url = input.value.trim();
+  if (!url) return;
 
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     url = "https://" + url;
   }
 
   const newTab = window.open();
+  if (!newTab) return;
+
   const iframeHTML = `
     <!DOCTYPE html>
     <html>
@@ -27,8 +39,8 @@ function launchProxy() {
     </body>
     </html>
   `;
+
   newTab.document.open();
   newTab.document.write(iframeHTML);
   newTab.document.close();
 }
-

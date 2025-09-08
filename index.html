@@ -2,124 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TEAMHYPER'S UNBLOCKED GAMES</title>
+  <title>Homework Helper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .game-card {
-      display: inline-block;
-      background: #f9f9f9;
-      border: 2px solid #333;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 320px;
-    }
-
-    .game-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .game-button {
-      padding: 12px 25px;
-      font-size: 1.1em;
-      background-color: #fff;
-      color: #333;
-      border: 2px solid #333;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .game-button:hover {
-      background-color: #333;
-      color: #fff;
-    }
-
-    #cloak-banner {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #222;
-      color: #fff;
-      padding: 5px;
-      font-size: 14px;
-      z-index: 9999;
-      text-align: center;
-    }
-
-    #cloak-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-      z-index: 9998;
-    }
-
-    #cloak-overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-      .game-card {
-        max-width: 90%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Cloak Banner -->
   <div id="cloak-banner">Press [K] to cloak/uncloak</div>
+
+  <!-- Cloak Overlay -->
   <div id="cloak-overlay">
-    <img src="disguise.jpg" alt="Disguise Tab">
+    <img src="https://raw.githubusercontent.com/BuilderBoiXx1335/HyperCLOked-v2/main/disguise.jpg" alt="Disguise Tab">
   </div>
 
-  <h1>🎮 TEAMHYPER'S UNBLOCKED GAMES 🎮</h1>
-  <p><em>Powered by EAGTEK • Built for chaos • Unblocked for all</em></p>
+  <h1>Homework Helper</h1>
+  <input type="text" id="urlInput" placeholder="Enter full URL (https://...)">
+  <button onclick="launchProxy()">Go</button>
 
-  <!-- Example Game Card -->
-  <div class="game-card">
-    <img src="game-preview.jpg" alt="Game Preview">
-    <br>
-    <button class="game-button" onclick="alert('Game would launch here')">
-      Launch Game
-    </button>
-  </div>
-
+  <script src="script.js"></script>
   <script>
+    // Cloak toggle logic
     let cloaked = false;
-
     document.addEventListener("keydown", function(e) {
       if (e.key.toLowerCase() === "k") {
         cloaked = !cloaked;

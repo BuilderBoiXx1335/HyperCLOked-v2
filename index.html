@@ -2,25 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework Helper</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <title>TEAMHYPER Launcher</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cloak Banner -->
-  <div id="cloak-banner">Press [K] to cloak/uncloak</div>
-
-  <!-- Cloak Overlay -->
-  <div id="cloak-overlay">
-    <img src="disguise.jpg" alt="Disguise Tab">
-  </div>
-
-  <!-- Proxy UI -->
-  <div id="proxy-ui">
-    <h1>Homework Helper</h1>
-    <input type="text" id="urlInput" placeholder="Enter full URL (https://...)">
+  <div id="controls">
+    <input id="urlInput" type="text" placeholder="Enter site URL">
     <button onclick="launchProxy()">Go</button>
+    <button onclick="toggleCloak()">Toggle Cloak</button>
   </div>
+
+  <iframe id="proxyFrame" style="width:100%; height:calc(100vh - 50px); border:none;"></iframe>
+
+  <div id="cloakOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:9999;"></div>
 
   <script src="script.js"></script>
 </body>

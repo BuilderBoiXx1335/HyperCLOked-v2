@@ -1,3 +1,4 @@
+// Launch proxy inside iframe
 function launchProxy() {
   const input = document.getElementById("urlInput");
   const iframe = document.getElementById("proxyFrame");
@@ -6,20 +7,25 @@ function launchProxy() {
   let url = input.value.trim();
   if (!url) return;
 
+  // Ensure valid URL format
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     url = "https://" + url;
   }
 
-  // Corrosion proxy endpoint
-  const proxyBase = "https://corrosion.thedev.id/service/";
+  // Rammerhead proxy (browser shell)
+  const proxyBase = "https://rammerhead.thedev.id/";
   const proxiedURL = proxyBase + encodeURIComponent(url);
 
+  // Load into iframe
   iframe.src = proxiedURL;
 }
 
-function toggleCloak() {
-  const cloak = document.getElementById("cloakOverlay");
-  if (!cloak) return;
+// Toggle cloak with "K" key
+document.addEventListener("keydown", function(e) {
+  if (e.key.toLowerCase() === "k") {
+    const cloak = document.getElementById("cloakOverlay");
+    if (!cloak) return;
 
-  cloak.style.display = (cloak.style.display === "none") ? "block" : "none";
-}
+    cloak.style.display = (cloak.style.display === "none") ? "block" : "none";
+  }
+});

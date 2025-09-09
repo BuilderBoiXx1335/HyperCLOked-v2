@@ -1,6 +1,7 @@
 function launchProxy() {
   const input = document.getElementById("urlInput");
-  if (!input) return;
+  const iframe = document.getElementById("proxyFrame");
+  if (!input || !iframe) return;
 
   let url = input.value.trim();
   if (!url) return;
@@ -9,10 +10,16 @@ function launchProxy() {
     url = "https://" + url;
   }
 
-  // Use Titanium Network's Ultraviolet mirror
-  const proxyBase = "https://ultraviolet.titaniumnetwork.org/service/";
+  // Corrosion proxy endpoint
+  const proxyBase = "https://corrosion.thedev.id/service/";
   const proxiedURL = proxyBase + encodeURIComponent(url);
 
-  // Load proxy in the same tab
-  window.location.href = proxiedURL;
+  iframe.src = proxiedURL;
+}
+
+function toggleCloak() {
+  const cloak = document.getElementById("cloakOverlay");
+  if (!cloak) return;
+
+  cloak.style.display = (cloak.style.display === "none") ? "block" : "none";
 }

@@ -5,15 +5,14 @@ function launchProxy() {
   let url = input.value.trim();
   if (!url) return;
 
-  // Ensure the URL starts with http/https
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     url = "https://" + url;
   }
 
-  // Doge0 Ultraviolet proxy endpoint
-  const proxyBase = "https://uv.doge0.repl.co/service/";
+  // Use Titanium Network's Ultraviolet mirror
+  const proxyBase = "https://ultraviolet.titaniumnetwork.org/service/";
   const proxiedURL = proxyBase + encodeURIComponent(url);
 
-  // Open proxied site in a new tab
-  window.open(proxiedURL, "_blank");
+  // Load proxy in the same tab
+  window.location.href = proxiedURL;
 }
